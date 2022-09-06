@@ -12,7 +12,6 @@ from apps.common.models import TimeStampedUUIDModel
 
 User = get_user_model()
 
-
 class PropertyPublishedManager(models.Manager):
     def get_queryset(self):
         return (
@@ -38,7 +37,7 @@ class Property(TimeStampedUUIDModel):
 
     user = models.ForeignKey(
         User,
-        verbose_name=_("Agent,Seller or Buyer"),
+        verbose_name=_("Agent, Seller or Buyer"),
         related_name="agent_buyer",
         on_delete=models.DO_NOTHING,
     )

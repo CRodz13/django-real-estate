@@ -1,6 +1,12 @@
-from rest_framework.exceptions import APIException
+from django.contrib import admin
+
+from .models import Property, PropertyViews
 
 
-class PropertyNotFound(APIException):
-    status_code = 404
-    default_detail = "The requested property does not exist"
+class PropertyAdmin(admin.ModelAdmin):
+    list_display = ["title", "country", "advert_type", "property_type"]
+    list_filter = ["advert_type", "property_type", "country"]
+
+
+admin.site.register(Property, PropertyAdmin)
+admin.site.register(PropertyViews)
